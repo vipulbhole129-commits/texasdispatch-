@@ -89,7 +89,7 @@ export default function HeroSection() {
             data-testid="btn-cta-hero-primary"
           >
             <Zap className="w-5 h-5" />
-            Secure My Spot — 72-Hour Free Trial
+            Activate My 72-Hour Trial
           </button>
           <button
             onClick={() => scrollTo("#loss-calculator")}
