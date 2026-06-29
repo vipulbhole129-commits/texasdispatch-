@@ -54,6 +54,24 @@ function StickyCTA() {
 export default function Home() {
   return (
     <div className="min-h-screen" style={{ background: "#060818" }}>
+      {/* TOP URGENCY BAR */}
+      <div
+        className="w-full flex items-center justify-center gap-2 py-2.5 px-4 text-center text-sm font-bold"
+        style={{ background: "rgba(255,59,59,0.12)", borderBottom: "1px solid rgba(255,59,59,0.25)", color: "#ff8080" }}
+        data-testid="urgency-bar-top"
+      >
+        ⚠️ Every missed call = lost plumbing job.{" "}
+        <button
+          onClick={() => scrollTo("#contact")}
+          className="underline font-black transition-colors"
+          style={{ color: "#ff3b3b" }}
+          onMouseEnter={(e) => { e.currentTarget.style.color = "#ff6b6b"; }}
+          onMouseLeave={(e) => { e.currentTarget.style.color = "#ff3b3b"; }}
+        >
+          Fix it now →
+        </button>
+      </div>
+
       <NavMenu />
 
       {/* HOOK */}

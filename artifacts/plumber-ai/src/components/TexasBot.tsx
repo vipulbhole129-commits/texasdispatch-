@@ -200,8 +200,8 @@ export default function TexasBot() {
           company: `${firstName}'s Plumbing Business`,
           email,
           phone,
-          serviceArea: "Texas",
-          missedCallsHandling: `${missedCalls} missed calls/week — $${jobValue}/job — ${callsPerWeek} total calls/week`,
+          serviceArea: `Texas — ${missedCalls} missed calls/wk, $${jobValue}/job, ${callsPerWeek} calls/wk`,
+          missedCallsHandling: "Enrolled via Texas Bot chat funnel",
         }),
       });
       if (res.ok) {
