@@ -160,26 +160,26 @@ export default function TexasBot() {
         await addBotMessage("Just type 'Yes' to lock in your free trial, or ask me anything.", 400);
       }
     } else if (step === "capture_name") {
-      const name = trimmed;
+      const name = text;
       setUserData((prev) => ({ ...prev, name }));
       await addBotMessage(`Nice to meet you, ${name.split(" ")[0]}. 💪`, 400);
       await addBotMessage("What's your business email? (We'll send confirmation there)", 1000);
       setStep("capture_email");
     } else if (step === "capture_email") {
-      if (!trimmed.includes("@") || !trimmed.includes(".")) {
+      if (!text.includes("@") || !text.includes(".")) {
         await addBotMessage("Hmm, that doesn't look like an email. Try again:", 400);
         return;
       }
-      setUserData((prev) => ({ ...prev, email: trimmed }));
+      setUserData((prev) => ({ ...prev, email: text }));
       await addBotMessage("Perfect. Last one — your phone number (we may call to confirm your setup):", 800);
       setStep("capture_phone");
     } else if (step === "capture_phone") {
-      const digits = trimmed.replace(/[^0-9]/g, "");
+      const digits = text.replace(/[^0-9]/g, "");
       if (digits.length < 10) {
         await addBotMessage("Need a full 10-digit number. Try again:", 400);
         return;
       }
-      setUserData((prev) => ({ ...prev, phone: trimmed }));
+      setUserData((prev) => ({ ...prev, phone: text }));
       setStep("submitting");
       await addBotMessage("Submitting your enrollment now...", 400);
       await submitLead();
