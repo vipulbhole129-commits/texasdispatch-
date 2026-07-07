@@ -94,28 +94,6 @@ export default function Home() {
       {/* 2. HERO — 2-column layout with video mock + audio player */}
       <HeroSection />
 
-      {/* Scrolling proof strip */}
-      <div
-        className="overflow-hidden py-3"
-        style={{ background: "rgba(16,185,129,0.08)", borderTop: "1px solid rgba(16,185,129,0.15)", borderBottom: "1px solid rgba(16,185,129,0.15)" }}
-      >
-        <div
-          className="flex gap-14 text-xs uppercase tracking-widest font-black whitespace-nowrap"
-          style={{ animation: "marquee 30s linear infinite", width: "max-content", color: "#10b981" }}
-        >
-          {Array(4).fill(null).map((_, i) => (
-            <span key={i} className="flex gap-14 items-center">
-              <span>24/7 Autonomous Answering</span><span style={{ color: "#374151" }}>•</span>
-              <span>2-Second Lead Dispatch</span><span style={{ color: "#374151" }}>•</span>
-              <span>Zero Long-Term Contracts</span><span style={{ color: "#374151" }}>•</span>
-              <span>3-Ring SLA Guarantee</span><span style={{ color: "#374151" }}>•</span>
-              <span>Texas-Only Focus</span><span style={{ color: "#374151" }}>•</span>
-              <span>$0 For Spam & Wrong Numbers</span><span style={{ color: "#374151" }}>•</span>
-            </span>
-          ))}
-        </div>
-      </div>
-
       {/* 3. TRUST & SOCIAL PROOF */}
       <TestimonialsSection />
 

@@ -178,20 +178,6 @@ export default function PricingSection() {
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="mt-10 p-6 rounded-2xl text-center"
-          style={{ background: "rgba(16,185,129,0.04)", border: "1px solid rgba(16,185,129,0.12)" }}
-        >
-          <p className="text-sm" style={{ color: "#9ca3af" }}>
-            Wrong numbers, spam, and hangups are always{" "}
-            <span className="font-black text-white">$0.00.</span>{" "}
-            You only pay for <span style={{ color: "#10b981", fontWeight: 700 }}>verified plumbing jobs.</span>
-          </p>
-        </motion.div>
       </div>
     </section>
   );
