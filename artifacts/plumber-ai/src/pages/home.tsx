@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Zap } from "lucide-react";
+import { Zap, X } from "lucide-react";
 import NavMenu from "@/components/NavMenu";
 import HeroSection from "@/components/HeroSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
 import LossCalculator from "@/components/LossCalculator";
 import ServicesSection from "@/components/ServicesSection";
 import PricingSection from "@/components/PricingSection";
 import ROICalculator from "@/components/ROICalculator";
-import FAQSection from "@/components/FAQSection";
 import ReferralSection from "@/components/ReferralSection";
+import FAQSection from "@/components/FAQSection";
 import LeadForm from "@/components/LeadForm";
 import TexasBot from "@/components/TexasBot";
 import ContactInfoSection from "@/components/ContactInfoSection";
@@ -18,11 +19,39 @@ function scrollTo(id: string) {
   if (el) el.scrollIntoView({ behavior: "smooth" });
 }
 
+function AnnouncementBar() {
+  const [dismissed, setDismissed] = useState(false);
+  if (dismissed) return null;
+  return (
+    <div
+      className="relative w-full flex items-center justify-center gap-3 py-3 px-10 text-center text-sm font-bold"
+      style={{
+        background: "linear-gradient(90deg, rgba(239,68,68,0.15), rgba(239,68,68,0.08), rgba(239,68,68,0.15))",
+        borderBottom: "1px solid rgba(239,68,68,0.3)",
+        color: "#fca5a5",
+      }}
+      data-testid="announcement-bar"
+    >
+      <span className="hidden sm:inline" style={{ color: "#ef4444", fontWeight: 900 }}>⚡ SERVER CAPACITY ALERT:</span>
+      <span>Only <strong className="text-white">3 onboarding slots</strong> remaining for Texas plumbing companies this week.</span>
+      <span className="hidden md:inline" style={{ color: "#9ca3af" }}>System Status:</span>
+      <span className="hidden md:inline font-black" style={{ color: "#10b981" }}>100% Operational.</span>
+      <button
+        onClick={() => setDismissed(true)}
+        className="absolute right-3 top-1/2 -translate-y-1/2 p-1 rounded-lg transition-colors hover:bg-white/10"
+        aria-label="Dismiss"
+        data-testid="btn-dismiss-announcement"
+      >
+        <X className="w-4 h-4" style={{ color: "#6b7280" }} />
+      </button>
+    </div>
+  );
+}
+
 function StickyCTA() {
   const [visible, setVisible] = useState(false);
-
   useEffect(() => {
-    const handler = () => setVisible(window.scrollY > 400);
+    const handler = () => setVisible(window.scrollY > 500);
     window.addEventListener("scroll", handler, { passive: true });
     return () => window.removeEventListener("scroll", handler);
   }, []);
@@ -35,11 +64,13 @@ function StickyCTA() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: "100%", opacity: 0 }}
           transition={{ type: "spring", damping: 30, stiffness: 300 }}
-          className="sticky-cta md:hidden"
+          className="fixed bottom-0 left-0 right-0 z-40 p-3 md:hidden"
+          style={{ background: "rgba(11,15,25,0.97)", backdropFilter: "blur(20px)", borderTop: "1px solid rgba(16,185,129,0.2)" }}
         >
           <button
             onClick={() => scrollTo("#contact")}
-            className="btn-green w-full flex items-center justify-center gap-2 py-4 rounded-xl font-black text-base"
+            className="w-full flex items-center justify-center gap-2 py-4 rounded-xl font-black text-base text-black"
+            style={{ background: "linear-gradient(135deg, #10b981, #059669)", boxShadow: "0 0 24px rgba(16,185,129,0.4)" }}
             data-testid="btn-sticky-cta"
           >
             <Zap className="w-5 h-5" />
@@ -53,84 +84,78 @@ function StickyCTA() {
 
 export default function Home() {
   return (
-    <div className="min-h-screen" style={{ background: "#060818" }}>
-      {/* TOP URGENCY BAR */}
-      <div
-        className="w-full flex items-center justify-center gap-2 py-2.5 px-4 text-center text-sm font-bold"
-        style={{ background: "rgba(255,59,59,0.12)", borderBottom: "1px solid rgba(255,59,59,0.25)", color: "#ff8080" }}
-        data-testid="urgency-bar-top"
-      >
-        ⚠️ Every missed call = lost plumbing job.{" "}
-        <button
-          onClick={() => scrollTo("#contact")}
-          className="underline font-black transition-colors"
-          style={{ color: "#ff3b3b" }}
-          onMouseEnter={(e) => { e.currentTarget.style.color = "#ff6b6b"; }}
-          onMouseLeave={(e) => { e.currentTarget.style.color = "#ff3b3b"; }}
-        >
-          Fix it now →
-        </button>
-      </div>
+    <div className="min-h-screen" style={{ background: "#0b0f19" }}>
+      {/* 1. SERVER CAPACITY ALERT (FOMO) */}
+      <AnnouncementBar />
 
+      {/* Nav */}
       <NavMenu />
 
-      {/* HOOK */}
+      {/* 2. HERO — 2-column layout with video mock + audio player */}
       <HeroSection />
 
-      {/* Urgency marquee strip */}
-      <div className="overflow-hidden py-3.5 urgency-bar">
+      {/* Scrolling proof strip */}
+      <div
+        className="overflow-hidden py-3"
+        style={{ background: "rgba(16,185,129,0.08)", borderTop: "1px solid rgba(16,185,129,0.15)", borderBottom: "1px solid rgba(16,185,129,0.15)" }}
+      >
         <div
-          className="flex gap-14 text-white font-black text-xs uppercase tracking-widest whitespace-nowrap"
-          style={{ animation: "marquee 25s linear infinite", width: "max-content" }}
+          className="flex gap-14 text-xs uppercase tracking-widest font-black whitespace-nowrap"
+          style={{ animation: "marquee 30s linear infinite", width: "max-content", color: "#10b981" }}
         >
           {Array(4).fill(null).map((_, i) => (
             <span key={i} className="flex gap-14 items-center">
-              <span>24/7 Call Answering</span><span>•</span>
-              <span>Texas Only</span><span>•</span>
-              <span>2-Second Lead Dispatch</span><span>•</span>
-              <span>No Spam Charges — Ever</span><span>•</span>
-              <span>Week-to-Week Enrollment</span><span>•</span>
-              <span>Zero Contracts</span><span>•</span>
-              <span>Instant Activation</span><span>•</span>
+              <span>24/7 Autonomous Answering</span><span style={{ color: "#374151" }}>•</span>
+              <span>2-Second Lead Dispatch</span><span style={{ color: "#374151" }}>•</span>
+              <span>Zero Long-Term Contracts</span><span style={{ color: "#374151" }}>•</span>
+              <span>3-Ring SLA Guarantee</span><span style={{ color: "#374151" }}>•</span>
+              <span>Texas-Only Focus</span><span style={{ color: "#374151" }}>•</span>
+              <span>$0 For Spam & Wrong Numbers</span><span style={{ color: "#374151" }}>•</span>
             </span>
           ))}
         </div>
       </div>
 
-      {/* INTERACTION + SHOCK */}
+      {/* 3. TRUST & SOCIAL PROOF */}
+      <TestimonialsSection />
+
+      {/* 4. LOSS AVERSION CALCULATOR */}
       <LossCalculator />
 
-      {/* RELIEF + AUTHORITY */}
+      {/* 5. SERVICES / RELIEF */}
       <ServicesSection />
 
-      {/* ANCHORING (Platinum push) */}
+      {/* 6. PRICING */}
       <PricingSection />
 
-      {/* ROI PROOF */}
+      {/* ROI Calculator */}
       <ROICalculator />
 
-      {/* SOCIAL LOOP */}
+      {/* Referral */}
       <ReferralSection />
 
-      {/* OBJECTION HANDLING */}
+      {/* 7. FAQ + 3-Ring SLA */}
       <FAQSection />
 
-      {/* CAPTURE */}
+      {/* 8. LEAD CAPTURE FORM */}
       <LeadForm />
 
       {/* Contact info */}
       <ContactInfoSection />
 
       {/* Footer */}
-      <footer className="py-10 px-4 text-center" style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+      <footer
+        className="py-10 px-4 text-center"
+        style={{ borderTop: "1px solid rgba(255,255,255,0.05)", background: "#0b0f19" }}
+      >
         <div className="flex items-center justify-center gap-2 mb-4">
-          <div className="w-7 h-7 rounded-lg flex items-center justify-center" style={{ background: "linear-gradient(135deg, #f97316, #ea580c)" }}>
-            <Zap className="w-3.5 h-3.5 text-white" />
+          <div className="w-7 h-7 rounded-lg flex items-center justify-center" style={{ background: "linear-gradient(135deg, #10b981, #059669)" }}>
+            <Zap className="w-3.5 h-3.5 text-black" />
           </div>
           <span className="font-black text-white text-base">Texas Plumbing Dispatch</span>
         </div>
         <p className="text-xs" style={{ color: "#374151" }}>
-          Built for Texas plumbers. Powered by AI. &copy; {new Date().getFullYear()} Texas Plumbing Dispatch. All rights reserved.
+          Built exclusively for Texas plumbers. Powered by AI. &copy; {new Date().getFullYear()} Texas Plumbing Dispatch. All rights reserved.
         </p>
         <p className="text-xs mt-1" style={{ color: "#1f2937" }}>vic@texasdispatch.site</p>
       </footer>

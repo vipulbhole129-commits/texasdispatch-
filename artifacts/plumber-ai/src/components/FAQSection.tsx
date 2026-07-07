@@ -1,30 +1,85 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Plus } from "lucide-react";
+import { Plus, Shield } from "lucide-react";
 
 const faqs = [
-  { q: "Why no dashboard? Other tools have portals.", a: "Portals slow you down. When a customer calls at 2 AM with a burst pipe, you need the lead in your email in 2 seconds — not buried in a login portal. Every lead includes the caller's name, number, address, issue, and audio recording. That's it. Fast, clean, actionable." },
-  { q: "What if someone calls with a wrong number or spam?", a: "You pay $0. Zero. We block known robocalls and automatically end spam pitches. You only pay for verified plumbing leads from real Texas homeowners. This is costing you nothing to protect against wasted calls." },
-  { q: "Who — or what — is answering the calls?", a: "Texas Plumbing Dispatch is our proprietary AI built exclusively for Texas plumbing businesses. It knows emergency vs. non-emergency, understands Texas geography, knows what a slab leak costs, and knows how to qualify a real job. It doesn't guess. It's built for this." },
-  { q: "How fast is the setup? Do I need IT?", a: "Zero IT. Setup takes 24-48 hours and we handle everything. To forward calls: dial *72 from your phone, then your Texas Dispatch number. To stop: dial *73. That's the entire setup. You're live in under a day." },
-  { q: "Can I cancel anytime?", a: "Yes. Week-to-week enrollment. No contracts. No cancellation fees. No penalties. We earn your business every week or you walk. Simple." },
-  { q: "How fast do I actually get the lead?", a: "Within 2 seconds of the call ending. You'll receive: customer name, phone number, address, description of the plumbing issue, urgency level, and a direct link to the call recording. Before they've hung up good, it's in your inbox." },
-  { q: "What if I get zero leads one week?", a: "You pay only the weekly enrollment fee. But think about this — one missed $1,200 emergency job pays your enrollment for 3+ months. You've already been paying for this problem. Now let's fix it." },
-  { q: "Will customers know it's an AI?", a: "Some might. They don't care. At 2 AM when their basement is flooding, they care about getting immediate help — not whether a human or AI answered. No hold music. No voicemail. No 'leave a message.' Just instant, empathetic response. That's what books jobs." },
+  {
+    q: "Why are there no long-term contracts?",
+    a: "Because we believe in absolute performance. We use a trustless system paired with a strict automated payment pipeline. If our AI stops booking jobs, you stop paying. Zero risk.",
+    highlight: true,
+  },
+  {
+    q: "What is your 3-Ring Answer Guarantee?",
+    a: "If our system takes more than 3 rings to answer any incoming emergency dispatch call, your subscription fee for that entire week is 100% free. Guaranteed.",
+    highlight: true,
+  },
+  {
+    q: "How fast is the initial setup?",
+    a: "Zero IT required. We configure everything in 24–48 hours. To forward calls: dial *72 then your Texas Dispatch number from your phone. To stop: dial *73. That's the entire setup process.",
+    highlight: false,
+  },
+  {
+    q: "Will my customers know they're talking to an AI?",
+    a: "Some may. At 2 AM when a pipe bursts and a basement is flooding, customers care about getting immediate help — not whether a human or AI picked up. No hold music. No voicemail. Instant, professional response. That books the job.",
+    highlight: false,
+  },
+  {
+    q: "What happens if I get zero leads in a week?",
+    a: "You pay only the weekly enrollment fee. But one missed $1,200 emergency job pays your enrollment for 3+ months. You've already been paying for this problem. Now we fix it.",
+    highlight: false,
+  },
+  {
+    q: "How does your lead pricing work exactly?",
+    a: "Standard leads (non-urgent inquiries) are $9 each. Emergency dispatch leads (burst pipes, gas leaks, major failures) are $19 each. Wrong numbers, spam calls, and robocalls are always $0 — you never pay for junk.",
+    highlight: false,
+  },
 ];
 
 export default function FAQSection() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="py-24 px-4">
+    <section id="faq" className="py-24 px-4" style={{ background: "#0b0f19", borderTop: "1px solid rgba(255,255,255,0.04)" }}>
       <div className="max-w-3xl mx-auto">
-        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-12">
-          <h2 className="font-display text-[clamp(36px,7vw,68px)] text-white leading-tight mb-4">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-14"
+        >
+          <h2 className="font-display text-[clamp(34px,6vw,64px)] text-white leading-tight mb-4">
             STRAIGHT ANSWERS.<br />
-            <span style={{ color: "#f97316" }}>NO RUNAROUND.</span>
+            <span style={{ color: "#10b981" }}>NO RUNAROUND.</span>
           </h2>
-          <p className="text-lg" style={{ color: "#8892b0" }}>Here's what you need to know before you enroll.</p>
+          <p className="text-lg" style={{ color: "#9ca3af" }}>
+            Every objection crushed. Every concern addressed.
+          </p>
+        </motion.div>
+
+        {/* 3-Ring SLA Guarantee Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="rounded-2xl p-6 mb-8 flex items-start gap-5"
+          style={{ background: "rgba(16,185,129,0.07)", border: "2px solid rgba(16,185,129,0.3)", boxShadow: "0 0 40px rgba(16,185,129,0.06)" }}
+          data-testid="sla-guarantee-banner"
+        >
+          <div className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0" style={{ background: "rgba(16,185,129,0.15)", border: "1px solid rgba(16,185,129,0.3)" }}>
+            <Shield className="w-7 h-7" style={{ color: "#10b981" }} />
+          </div>
+          <div>
+            <p className="text-xs font-black uppercase tracking-widest mb-2" style={{ color: "#10b981" }}>3-Ring SLA Guarantee</p>
+            <p className="text-base font-bold text-white leading-snug">
+              If our system takes more than 3 rings to answer any emergency dispatch call —{" "}
+              <span style={{ color: "#10b981" }}>your entire week's subscription fee is free. Guaranteed.</span>
+            </p>
+            <p className="text-xs mt-2" style={{ color: "#6b7280" }}>
+              No questions. No tickets. Automatic credit applied.
+            </p>
+          </div>
         </motion.div>
 
         <div className="space-y-3">
@@ -34,22 +89,40 @@ export default function FAQSection() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.06 }}
+              transition={{ duration: 0.4, delay: i * 0.05 }}
               className="rounded-2xl overflow-hidden transition-all duration-300"
               style={{
-                border: open === i ? "1px solid rgba(249,115,22,0.4)" : "1px solid rgba(255,255,255,0.07)",
-                background: open === i ? "rgba(249,115,22,0.06)" : "rgba(255,255,255,0.03)",
-                boxShadow: open === i ? "0 0 20px rgba(249,115,22,0.08)" : "none",
+                border: open === i
+                  ? `1px solid ${faq.highlight ? "rgba(16,185,129,0.5)" : "rgba(255,255,255,0.15)"}`
+                  : "1px solid rgba(255,255,255,0.06)",
+                background: open === i
+                  ? faq.highlight ? "rgba(16,185,129,0.05)" : "rgba(255,255,255,0.04)"
+                  : "rgba(255,255,255,0.02)",
+                boxShadow: open === i && faq.highlight ? "0 0 20px rgba(16,185,129,0.06)" : "none",
               }}
             >
               <button
-                className="w-full flex items-center justify-between p-6 text-left"
+                className="w-full flex items-center justify-between p-6 text-left gap-4"
                 onClick={() => setOpen(open === i ? null : i)}
                 data-testid={`faq-toggle-${i}`}
               >
-                <span className="font-bold text-base pr-6 leading-snug" style={{ color: open === i ? "#f97316" : "white" }}>{faq.q}</span>
-                <motion.div animate={{ rotate: open === i ? 45 : 0 }} transition={{ duration: 0.2 }} className="flex-shrink-0">
-                  <Plus className="w-5 h-5" style={{ color: "#f97316" }} />
+                <div className="flex items-center gap-3 flex-1 min-w-0">
+                  {faq.highlight && (
+                    <span className="flex-shrink-0 w-2 h-2 rounded-full" style={{ background: "#10b981" }} />
+                  )}
+                  <span
+                    className="font-bold text-base leading-snug"
+                    style={{ color: open === i ? (faq.highlight ? "#10b981" : "white") : "#d1d5db" }}
+                  >
+                    {faq.q}
+                  </span>
+                </div>
+                <motion.div
+                  animate={{ rotate: open === i ? 45 : 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="flex-shrink-0"
+                >
+                  <Plus className="w-5 h-5" style={{ color: faq.highlight ? "#10b981" : "#6b7280" }} />
                 </motion.div>
               </button>
               <AnimatePresence>
@@ -60,7 +133,9 @@ export default function FAQSection() {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <p className="px-6 pb-6 text-sm leading-relaxed" style={{ color: "#8892b0" }}>{faq.a}</p>
+                    <p className="px-6 pb-6 text-base leading-relaxed" style={{ color: "#9ca3af" }}>
+                      {faq.a}
+                    </p>
                   </motion.div>
                 )}
               </AnimatePresence>
