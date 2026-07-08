@@ -29,8 +29,8 @@ export default function TrustStrip() {
       <div
         className="marquee-viewport max-w-6xl mx-auto rounded-lg overflow-hidden py-4 sm:py-5"
         style={{
-          background: "linear-gradient(90deg, #ff8c00, #ff4500)",
-          boxShadow: "0 8px 30px rgba(255,69,0,0.25), 0 2px 0 rgba(255,255,255,0.08) inset",
+          background: "linear-gradient(90deg, #d97706, #b45309)",
+          boxShadow: "0 8px 30px rgba(180,83,9,0.25), 0 2px 0 rgba(255,255,255,0.08) inset",
         }}
         data-testid="trust-strip"
       >

@@ -10,11 +10,11 @@ export default function HeroSection() {
   return (
     <section
       className="relative min-h-screen flex items-center overflow-hidden pt-20 pb-16"
-      style={{ background: "#0f172a" }}
+      style={{ background: "linear-gradient(180deg, #0f172a 0%, #020617 100%)" }}
     >
       {/* Blueprint grid overlay */}
       <div
-        className="absolute inset-0 pointer-events-none blueprint-grid"
+        className="absolute inset-0 pointer-events-none blueprint-grid-subtle"
         style={{
           maskImage: "radial-gradient(ellipse 90% 80% at 50% 40%, black 40%, transparent 90%)",
           WebkitMaskImage: "radial-gradient(ellipse 90% 80% at 50% 40%, black 40%, transparent 90%)",
@@ -86,7 +86,8 @@ export default function HeroSection() {
             data-testid="hero-subheadline"
           >
             Never let a midnight emergency call drop to voicemail. Secure every
-            dispatch with a bulletproof,{" "}
+            dispatch with a{" "}
+            <strong style={{ color: "#22c55e" }}>bulletproof</strong>,{" "}
             <strong className="text-white">24/7 automated voice infrastructure.</strong>
           </p>
 
@@ -94,11 +95,11 @@ export default function HeroSection() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-14">
             <button
               onClick={() => scrollTo("#contact")}
-              className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-black text-base text-black transition-all duration-200 hover:scale-[1.03]"
+              className="btn-cta-glow flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-black text-base text-black transition-all duration-200 hover:scale-[1.03]"
               style={{
-                background: "linear-gradient(135deg, #10b981, #059669)",
+                background: "linear-gradient(135deg, #22c55e, #16a34a)",
                 boxShadow:
-                  "0 0 30px rgba(16,185,129,0.4), 0 4px 16px rgba(0,0,0,0.4)",
+                  "0 0 30px rgba(34,197,94,0.4), 0 4px 16px rgba(0,0,0,0.4)",
               }}
               data-testid="btn-cta-hero-primary"
             >
@@ -142,11 +143,15 @@ export default function HeroSection() {
             ].map((s) => (
               <div
                 key={s.l}
-                className="flex flex-col items-center px-6 py-4 rounded-xl min-w-[110px] backdrop-blur-sm bg-white/10 border border-white/10"
+                className="flex flex-col items-center px-6 py-4 rounded-xl min-w-[110px] backdrop-blur-sm"
+                style={{
+                  background: "rgba(255,255,255,0.03)",
+                  border: "1px solid #334155",
+                }}
               >
                 <p
                   className="text-xl font-black"
-                  style={{ color: "#10b981" }}
+                  style={{ color: "#22c55e" }}
                 >
                   {s.v}
                 </p>
