@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Play, Zap } from "lucide-react";
+import { ArrowRight, Play, ShieldCheck, CreditCard, MapPin } from "lucide-react";
 
 function scrollTo(id: string) {
   const el = document.querySelector(id);
@@ -126,6 +126,33 @@ export default function HeroSection() {
               <Play className="w-4 h-4" />
               Watch 1-Min System Demo
             </a>
+          </div>
+
+          {/* Curiosity hook */}
+          <p
+            className="text-sm font-semibold mb-8 -mt-9"
+            style={{ color: "#facc15" }}
+            data-testid="hero-curiosity-hook"
+          >
+            👀 See how it caught a real $1,200 emergency job in 11 seconds flat.
+          </p>
+
+          {/* Trust badges */}
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 mb-10">
+            {[
+              { icon: ShieldCheck, label: "No Contracts, Ever" },
+              { icon: CreditCard, label: "No Credit Card Required" },
+              { icon: MapPin, label: "Texas-Owned & Operated" },
+            ].map((b) => (
+              <div
+                key={b.label}
+                className="flex items-center gap-2 text-sm font-semibold"
+                style={{ color: "#9ca3af" }}
+              >
+                <b.icon className="w-4 h-4" style={{ color: "#22c55e" }} />
+                {b.label}
+              </div>
+            ))}
           </div>
 
           {/* Stats row */}
