@@ -105,8 +105,10 @@ export default function HeroSection() {
             >
               Activate My 72-Hour Free Trial <ArrowRight className="w-5 h-5" />
             </button>
-            <button
-              onClick={() => scrollTo("#about")}
+            <a
+              href="https://youtube.com/@texasdispatch?si=rK85Ni_O8AHd9iMb"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-base transition-all duration-200"
               style={{
                 border: "1.5px solid rgba(16,185,129,0.4)",
@@ -123,7 +125,7 @@ export default function HeroSection() {
             >
               <Play className="w-4 h-4" />
               Watch 1-Min System Demo
-            </button>
+            </a>
           </div>
 
           {/* Stats row */}

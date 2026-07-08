@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Zap, X } from "lucide-react";
 import NavMenu from "@/components/NavMenu";
 import HeroSection from "@/components/HeroSection";
+import TrustStrip from "@/components/TrustStrip";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import LossCalculator from "@/components/LossCalculator";
 import ServicesSection from "@/components/ServicesSection";
@@ -93,6 +94,9 @@ export default function Home() {
 
       {/* 2. HERO — 2-column layout with video mock + audio player */}
       <HeroSection />
+
+      {/* 2b. TRUST / FEATURE STRIP */}
+      <TrustStrip />
 
       {/* 3. TRUST & SOCIAL PROOF */}
       <TestimonialsSection />
