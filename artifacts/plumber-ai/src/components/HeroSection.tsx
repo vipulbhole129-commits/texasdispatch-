@@ -9,7 +9,7 @@ function scrollTo(id: string) {
 export default function HeroSection() {
   return (
     <section
-      className="relative min-h-screen flex items-center overflow-hidden pt-20 pb-16"
+      className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-10 sm:pt-20 sm:pb-16"
       style={{ background: "linear-gradient(180deg, #0f172a 0%, #020617 100%)" }}
     >
       {/* Blueprint grid overlay */}
@@ -47,7 +47,7 @@ export default function HeroSection() {
         >
           {/* Live status badge */}
           <div
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold mb-8"
+            className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-bold mb-5 sm:mb-8"
             style={{
               background: "rgba(16,185,129,0.1)",
               border: "1px solid rgba(16,185,129,0.35)",
@@ -81,7 +81,7 @@ export default function HeroSection() {
 
           {/* Subheadline */}
           <p
-            className="text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-10"
+            className="text-base sm:text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-6 sm:mb-10 px-2 sm:px-0"
             style={{ color: "#9ca3af" }}
             data-testid="hero-subheadline"
           >
@@ -92,10 +92,10 @@ export default function HeroSection() {
           </p>
 
           {/* CTA buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-14">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-8 sm:mb-14">
             <button
               onClick={() => scrollTo("#contact")}
-              className="btn-cta-glow flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-black text-base text-black transition-all duration-200 hover:scale-[1.03]"
+              className="btn-cta-glow flex items-center justify-center gap-2 px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl font-black text-sm sm:text-base text-black transition-all duration-200 hover:scale-[1.03]"
               style={{
                 background: "linear-gradient(135deg, #22c55e, #16a34a)",
                 boxShadow:
@@ -109,7 +109,7 @@ export default function HeroSection() {
               href="https://youtube.com/@texasdispatch?si=rK85Ni_O8AHd9iMb"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-base transition-all duration-200"
+              className="flex items-center justify-center gap-2 px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl font-bold text-sm sm:text-base transition-all duration-200"
               style={{
                 border: "1.5px solid rgba(16,185,129,0.4)",
                 color: "#10b981",
@@ -130,7 +130,7 @@ export default function HeroSection() {
 
           {/* Curiosity hook */}
           <p
-            className="text-sm font-semibold mb-8 -mt-9"
+            className="text-xs sm:text-sm font-semibold mb-4 sm:mb-8 sm:-mt-9 px-2"
             style={{ color: "#38bdf8" }}
             data-testid="hero-curiosity-hook"
           >
@@ -138,7 +138,7 @@ export default function HeroSection() {
           </p>
 
           {/* Trust badges */}
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 mb-10">
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 sm:gap-x-6 sm:gap-y-3 mb-6 sm:mb-10">
             {[
               { icon: ShieldCheck, label: "No Contracts, Ever" },
               { icon: CreditCard, label: "No Credit Card Required" },
@@ -146,10 +146,10 @@ export default function HeroSection() {
             ].map((b) => (
               <div
                 key={b.label}
-                className="flex items-center gap-2 text-sm font-semibold"
+                className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-semibold"
                 style={{ color: "#9ca3af" }}
               >
-                <b.icon className="w-4 h-4" style={{ color: "#22c55e" }} />
+                <b.icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" style={{ color: "#22c55e" }} />
                 {b.label}
               </div>
             ))}
@@ -160,7 +160,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-wrap justify-center gap-4"
+            className="flex flex-wrap justify-center gap-2.5 sm:gap-4"
           >
             {[
               { v: "24/7", l: "Always Live" },
@@ -170,20 +170,20 @@ export default function HeroSection() {
             ].map((s) => (
               <div
                 key={s.l}
-                className="flex flex-col items-center px-6 py-4 rounded-xl min-w-[110px] backdrop-blur-sm"
+                className="flex flex-col items-center px-4 py-3 sm:px-6 sm:py-4 rounded-xl min-w-[85px] sm:min-w-[110px] backdrop-blur-sm"
                 style={{
                   background: "rgba(255,255,255,0.03)",
                   border: "1px solid #334155",
                 }}
               >
                 <p
-                  className="text-xl font-black"
+                  className="text-base sm:text-xl font-black"
                   style={{ color: "#22c55e" }}
                 >
                   {s.v}
                 </p>
                 <p
-                  className="text-xs mt-0.5 uppercase tracking-wider"
+                  className="text-[10px] sm:text-xs mt-0.5 uppercase tracking-wider text-center"
                   style={{ color: "#6b7280" }}
                 >
                   {s.l}

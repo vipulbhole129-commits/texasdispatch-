@@ -292,13 +292,13 @@ export default function TexasBot() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => { setOpen(true); setMinimized(false); }}
-            className="fixed bottom-20 md:bottom-6 right-4 z-50 flex flex-col items-center gap-1.5"
+            className="fixed bottom-28 sm:bottom-20 md:bottom-6 right-3 sm:right-4 z-50 flex flex-col items-center gap-1"
             data-testid="btn-texas-bot-open"
           >
-            <div className="w-16 h-16 rounded-full flex items-center justify-center" style={{ background: "linear-gradient(135deg, #f97316, #ea580c)", boxShadow: "0 0 25px rgba(249,115,22,0.6), 0 4px 20px rgba(0,0,0,0.4)" }}>
-              <Zap className="w-7 h-7 text-white" />
+            <div className="w-11 h-11 sm:w-16 sm:h-16 rounded-full flex items-center justify-center" style={{ background: "linear-gradient(135deg, #f97316, #ea580c)", boxShadow: "0 0 25px rgba(249,115,22,0.6), 0 4px 20px rgba(0,0,0,0.4)" }}>
+              <Zap className="w-5 h-5 sm:w-7 sm:h-7 text-white" />
             </div>
-            <span className="text-xs font-black text-white px-3 py-1 rounded-full" style={{ background: "rgba(249,115,22,0.9)", boxShadow: "0 0 10px rgba(249,115,22,0.4)" }}>
+            <span className="hidden sm:inline-block text-xs font-black text-white px-3 py-1 rounded-full" style={{ background: "rgba(249,115,22,0.9)", boxShadow: "0 0 10px rgba(249,115,22,0.4)" }}>
               Texas Bot
             </span>
           </motion.button>
@@ -313,7 +313,7 @@ export default function TexasBot() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 30, scale: 0.95 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="fixed bottom-20 md:bottom-6 right-4 z-50 rounded-2xl overflow-hidden flex flex-col"
+            className="fixed bottom-28 sm:bottom-20 md:bottom-6 right-3 sm:right-4 z-50 rounded-2xl overflow-hidden flex flex-col"
             style={{
               width: "min(380px, calc(100vw - 32px))",
               height: minimized ? "60px" : "min(560px, calc(100vh - 120px))",
