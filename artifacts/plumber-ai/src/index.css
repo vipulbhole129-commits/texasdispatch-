@@ -203,6 +203,22 @@
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
+.marquee-track {
+  animation: marquee 22s linear infinite;
+  will-change: transform;
+}
+.marquee-viewport:hover .marquee-track { animation-play-state: paused; }
+
+/* ===== BLUEPRINT GRID ===== */
+.blueprint-grid {
+  background-image:
+    linear-gradient(rgba(26,32,44,0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,32,44,0.1) 1px, transparent 1px),
+    linear-gradient(rgba(26,32,44,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,32,44,0.06) 1px, transparent 1px);
+  background-size: 80px 80px, 80px 80px, 16px 16px, 16px 16px;
+  background-position: -1px -1px, -1px -1px, -1px -1px, -1px -1px;
+}
 
 /* ===== SLIDERS ===== */
 input[type="range"] {

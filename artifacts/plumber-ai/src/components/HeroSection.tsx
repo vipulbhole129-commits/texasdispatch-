@@ -10,15 +10,14 @@ export default function HeroSection() {
   return (
     <section
       className="relative min-h-screen flex items-center overflow-hidden pt-20 pb-16"
-      style={{ background: "#0b0f19" }}
+      style={{ background: "#0f172a" }}
     >
-      {/* Grid overlay */}
+      {/* Blueprint grid overlay */}
       <div
-        className="absolute inset-0 pointer-events-none"
+        className="absolute inset-0 pointer-events-none blueprint-grid"
         style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
+          maskImage: "radial-gradient(ellipse 90% 80% at 50% 40%, black 40%, transparent 90%)",
+          WebkitMaskImage: "radial-gradient(ellipse 90% 80% at 50% 40%, black 40%, transparent 90%)",
         }}
       />
 
@@ -143,11 +142,7 @@ export default function HeroSection() {
             ].map((s) => (
               <div
                 key={s.l}
-                className="flex flex-col items-center px-6 py-4 rounded-xl min-w-[110px]"
-                style={{
-                  background: "rgba(255,255,255,0.03)",
-                  border: "1px solid rgba(255,255,255,0.07)",
-                }}
+                className="flex flex-col items-center px-6 py-4 rounded-xl min-w-[110px] backdrop-blur-sm bg-white/10 border border-white/10"
               >
                 <p
                   className="text-xl font-black"
