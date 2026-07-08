@@ -131,10 +131,10 @@ export default function HeroSection() {
           {/* Curiosity hook */}
           <p
             className="text-sm font-semibold mb-8 -mt-9"
-            style={{ color: "#facc15" }}
+            style={{ color: "#38bdf8" }}
             data-testid="hero-curiosity-hook"
           >
-            👀 See how it caught a real $1,200 emergency job in 11 seconds flat.
+            👀 See how it caught a real $1,200 emergency job in 2 seconds flat.
           </p>
 
           {/* Trust badges */}
