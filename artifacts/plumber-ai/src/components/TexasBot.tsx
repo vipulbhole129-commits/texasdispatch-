@@ -316,7 +316,8 @@ export default function TexasBot() {
             className="fixed bottom-28 sm:bottom-20 md:bottom-6 right-3 sm:right-4 z-50 rounded-2xl overflow-hidden flex flex-col"
             style={{
               width: "min(380px, calc(100vw - 32px))",
-              height: minimized ? "60px" : "min(560px, calc(100vh - 120px))",
+              height: minimized ? "60px" : "min(560px, calc(100dvh - 160px), calc(100vh - 160px))",
+              maxHeight: minimized ? "60px" : "calc(100dvh - 160px)",
               background: "rgba(8,10,25,0.97)",
               border: "1px solid rgba(249,115,22,0.35)",
               boxShadow: "0 20px 80px rgba(0,0,0,0.8), 0 0 0 1px rgba(249,115,22,0.15)",
