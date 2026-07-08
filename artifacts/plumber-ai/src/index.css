@@ -183,11 +183,15 @@
 /* ===== 3D CARD HOVER ===== */
 .card-3d {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  transform: perspective(1000px) rotateX(1deg);
 }
-.card-3d:hover {
-  transform: perspective(1000px) rotateX(0deg) translateY(-6px) scale(1.01);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(249,115,22,0.3);
+@media (min-width: 640px) {
+  .card-3d {
+    transform: perspective(1000px) rotateX(1deg);
+  }
+  .card-3d:hover {
+    transform: perspective(1000px) rotateX(0deg) translateY(-6px) scale(1.01);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(249,115,22,0.3);
+  }
 }
 
 /* ===== FLOATING ELEMENTS ===== */

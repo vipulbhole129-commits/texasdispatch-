@@ -71,7 +71,7 @@ export default function LossCalculator() {
         >
           <div className="p-6 md:p-10 grid md:grid-cols-2 gap-8">
             {/* Inputs */}
-            <div className="space-y-7">
+            <div className="space-y-7 overflow-hidden max-w-full">
               <h3 className="text-base font-bold uppercase tracking-widest" style={{ color: "#ef4444" }}>
                 Your Numbers
               </h3>
@@ -88,7 +88,7 @@ export default function LossCalculator() {
                     setCallsPerWeek(v);
                     if (missedCalls > v) setMissedCalls(v);
                   }}
-                  className="red-track w-full"
+                  className="red-track w-[calc(100%-8px)] sm:w-full"
                   data-testid="slider-calls-per-week"
                 />
               </div>
@@ -101,7 +101,7 @@ export default function LossCalculator() {
                 <input
                   type="range" min="0" max={callsPerWeek} value={missedCalls}
                   onChange={(e) => setMissedCalls(Number(e.target.value))}
-                  className="red-track w-full"
+                  className="red-track w-[calc(100%-8px)] sm:w-full"
                   data-testid="slider-missed-calls"
                 />
               </div>
@@ -114,7 +114,7 @@ export default function LossCalculator() {
                 <input
                   type="range" min="200" max="5000" step="100" value={jobValue}
                   onChange={(e) => setJobValue(Number(e.target.value))}
-                  className="red-track w-full"
+                  className="red-track w-[calc(100%-8px)] sm:w-full"
                   data-testid="slider-job-value"
                 />
               </div>

@@ -57,7 +57,7 @@ export default function ROICalculator() {
           style={{ border: "1px solid rgba(0,255,136,0.2)", boxShadow: "0 0 60px rgba(0,255,136,0.05), 0 20px 60px rgba(0,0,0,0.5)" }}
         >
           <div className="p-6 md:p-10 grid md:grid-cols-2 gap-8">
-            <div className="space-y-7">
+            <div className="space-y-7 overflow-hidden max-w-full">
               <h3 className="text-base font-bold uppercase tracking-widest" style={{ color: "#00ff88" }}>Configure Your Enrollment</h3>
 
               <div>
@@ -95,7 +95,7 @@ export default function ROICalculator() {
                   <label className="text-sm font-medium flex-1 min-w-0" style={{ color: "#c0c8e8" }}>Expected answer rate improvement</label>
                   <span className="text-sm font-black flex-shrink-0 whitespace-nowrap" style={{ color: "#00ff88" }}>{answerRateIncrease}%</span>
                 </div>
-                <input type="range" min="10" max="90" value={answerRateIncrease} onChange={(e) => setAnswerRateIncrease(Number(e.target.value))} className="green-track" data-testid="slider-answer-rate" />
+                <input type="range" min="10" max="90" value={answerRateIncrease} onChange={(e) => setAnswerRateIncrease(Number(e.target.value))} className="green-track w-[calc(100%-8px)] sm:w-full" data-testid="slider-answer-rate" />
                 <div className="flex justify-between text-xs mt-1" style={{ color: "#374151" }}><span>10%</span><span>90%</span></div>
               </div>
             </div>
