@@ -77,9 +77,9 @@ export default function LossCalculator() {
               </h3>
 
               <div>
-                <div className="flex justify-between mb-3">
-                  <label className="text-sm font-medium" style={{ color: "#d1d5db" }}>Calls received per week</label>
-                  <span className="text-sm font-black" style={{ color: "#10b981" }}>{callsPerWeek}</span>
+                <div className="flex justify-between items-start gap-2 mb-3">
+                  <label className="text-sm font-medium flex-1 min-w-0" style={{ color: "#d1d5db" }}>Calls received per week</label>
+                  <span className="text-sm font-black flex-shrink-0 whitespace-nowrap" style={{ color: "#10b981" }}>{callsPerWeek}</span>
                 </div>
                 <input
                   type="range" min="1" max="500" value={callsPerWeek}
@@ -94,9 +94,9 @@ export default function LossCalculator() {
               </div>
 
               <div>
-                <div className="flex justify-between mb-3">
-                  <label className="text-sm font-medium" style={{ color: "#d1d5db" }}>Dead / missed calls per week</label>
-                  <span className="text-sm font-black" style={{ color: "#ef4444" }}>{missedCalls}</span>
+                <div className="flex justify-between items-start gap-2 mb-3">
+                  <label className="text-sm font-medium flex-1 min-w-0" style={{ color: "#d1d5db" }}>Dead / missed calls per week</label>
+                  <span className="text-sm font-black flex-shrink-0 whitespace-nowrap" style={{ color: "#ef4444" }}>{missedCalls}</span>
                 </div>
                 <input
                   type="range" min="0" max={callsPerWeek} value={missedCalls}
@@ -107,9 +107,9 @@ export default function LossCalculator() {
               </div>
 
               <div>
-                <div className="flex justify-between mb-3">
-                  <label className="text-sm font-medium" style={{ color: "#d1d5db" }}>Average emergency job value</label>
-                  <span className="text-sm font-black" style={{ color: "#ef4444" }}>${jobValue.toLocaleString()}</span>
+                <div className="flex justify-between items-start gap-2 mb-3">
+                  <label className="text-sm font-medium flex-1 min-w-0" style={{ color: "#d1d5db" }}>Average emergency job value</label>
+                  <span className="text-sm font-black flex-shrink-0 whitespace-nowrap" style={{ color: "#ef4444" }}>${jobValue.toLocaleString()}</span>
                 </div>
                 <input
                   type="range" min="200" max="5000" step="100" value={jobValue}

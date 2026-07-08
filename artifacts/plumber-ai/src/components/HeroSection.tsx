@@ -9,7 +9,7 @@ function scrollTo(id: string) {
 export default function HeroSection() {
   return (
     <section
-      className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-10 sm:pt-20 sm:pb-16"
+      className="relative flex items-center overflow-hidden pt-24 pb-10 sm:pt-20 sm:pb-16 sm:min-h-screen"
       style={{ background: "linear-gradient(180deg, #0f172a 0%, #020617 100%)" }}
     >
       {/* Blueprint grid overlay */}
