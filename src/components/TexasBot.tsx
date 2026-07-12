@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Send, Loader2, ChevronDown, Zap } from "lucide-react";
+import { X, Send, Loader as Loader2, ChevronDown, Zap } from "lucide-react";
 
 interface Message {
   role: "bot" | "user";

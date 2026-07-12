@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Loader2, ArrowRight, Shield, Zap, Lock } from "lucide-react";
+import { Loader as Loader2, ArrowRight, Shield, Zap, Lock } from "lucide-react";
 
 const GOOGLE_SCRIPT_URL =
   "https://script.google.com/macros/s/AKfycbzI4lFuhrsktI8bki928fCb56pr0tTq501UQGoFOikzrFDhDPuKFhSSQyEg9cYG-pkQ/exec";

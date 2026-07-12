@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { PhoneCall, Filter, Zap, Brain, Calendar, PhoneOutgoing } from "lucide-react";
+import { PhoneCall, ListFilter as Filter, Zap, Brain, Calendar, PhoneOutgoing } from "lucide-react";
 
 const services = [
   { icon: PhoneCall, title: "24/7 Call Answering", desc: "Every call answered. Every emergency captured. While you sleep, we work. Your competitor doesn't stand a chance.", color: "#00ff88" },

@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { animate } from "framer-motion";
-import { TrendingDown, ArrowRight, AlertTriangle } from "lucide-react";
+import { TrendingDown, ArrowRight, TriangleAlert as AlertTriangle } from "lucide-react";
 
 function scrollTo(id: string) {
   const el = document.querySelector(id);
