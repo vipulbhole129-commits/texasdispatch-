@@ -1,74 +1,37 @@
-import { Phone, Mail, MapPin, Clock, Wrench } from "lucide-react";
+import { motion } from "framer-motion";
+import { Mail, MapPin, Clock } from "lucide-react";
 
-const contactInfo = [
-  {
-    icon: Phone,
-    label: "Phone",
-    value: "(800) 555-1234",
-    href: "tel:+18005551234",
-  },
-  {
-    icon: Mail,
-    label: "Email",
-    value: "hello@texasplumberai.com",
-    href: "mailto:hello@texasplumberai.com",
-  },
-  {
-    icon: MapPin,
-    label: "Location",
-    value: "Houston, Texas — Serving All of TX",
-  },
-  {
-    icon: Clock,
-    label: "AI Receptionist",
-    value: "24/7/365 — Never Sleeps",
-  },
-];
-
-export function ContactInfoSection() {
+export default function ContactInfoSection() {
   return (
-    <section className="py-16 border-t border-border/40">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="grid gap-8 md:grid-cols-2 md:items-center">
-          <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
-                <Wrench className="h-5 w-5 text-primary-foreground" />
+    <section id="contact-info" className="py-16 px-4" style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+      <div className="max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-4">
+          {[
+            { icon: Mail, label: "Direct Email", value: "vic@texasdispatch.site", link: "mailto:vic@texasdispatch.site", color: "#f97316" },
+            { icon: MapPin, label: "Territory", value: "Texas Only — 100% Focused", link: null, color: "#00ff88" },
+            { icon: Clock, label: "AI Support", value: "24/7/365 — Always On", link: null, color: "#f97316" },
+          ].map((item, i) => (
+            <motion.div
+              key={item.label}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: i * 0.1 }}
+              className="flex items-center gap-4 p-5 rounded-xl"
+              style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)" }}
+            >
+              <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: `${item.color}15` }}>
+                <item.icon className="w-5 h-5" style={{ color: item.color }} />
               </div>
-              <span className="text-xl font-bold">
-                Texas Plumber <span className="text-primary">AI</span>
-              </span>
-            </div>
-            <p className="text-muted-foreground max-w-md">
-              The AI receptionist built specifically for Texas plumbing
-              companies. Never miss a call, never lose a lead.
-            </p>
-          </div>
-
-          <div className="grid gap-4 sm:grid-cols-2">
-            {contactInfo.map((info) => (
-              <div key={info.label} className="flex items-start gap-3">
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10">
-                  <info.icon className="h-4 w-4 text-primary" />
-                </div>
-                <div>
-                  <div className="text-xs font-medium text-muted-foreground">
-                    {info.label}
-                  </div>
-                  {info.href ? (
-                    <a
-                      href={info.href}
-                      className="text-sm font-semibold hover:text-primary transition-colors"
-                    >
-                      {info.value}
-                    </a>
-                  ) : (
-                    <div className="text-sm font-semibold">{info.value}</div>
-                  )}
-                </div>
+              <div>
+                <p className="text-xs uppercase tracking-widest mb-0.5" style={{ color: "#4b5563" }}>{item.label}</p>
+                {item.link
+                  ? <a href={item.link} className="font-semibold text-sm transition-colors" style={{ color: "white" }} onMouseEnter={(e) => { e.currentTarget.style.color = item.color; }} onMouseLeave={(e) => { e.currentTarget.style.color = "white"; }}>{item.value}</a>
+                  : <p className="font-semibold text-sm text-white">{item.value}</p>
+                }
               </div>
-            ))}
-          </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

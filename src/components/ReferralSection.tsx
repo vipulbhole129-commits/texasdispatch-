@@ -1,73 +1,60 @@
-import { Gift, Users, DollarSign } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { motion } from "framer-motion";
+import { Users, ArrowRight } from "lucide-react";
 
-export function ReferralSection() {
+function scrollTo(id: string) {
+  const el = document.querySelector(id);
+  if (el) el.scrollIntoView({ behavior: "smooth" });
+}
+
+export default function ReferralSection() {
   return (
-    <section className="py-20 md:py-28">
-      <div className="container mx-auto px-4 md:px-6">
-        <Card className="overflow-hidden border-primary/20 bg-gradient-to-r from-primary/5 to-accent/10">
-          <CardContent className="p-8 md:p-12">
-            <div className="grid gap-8 md:grid-cols-2 md:items-center">
-              <div>
-                <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary mb-4">
-                  <Gift className="h-4 w-4" />
-                  Referral Program
-                </div>
-                <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-                  Refer a Fellow Plumber,
-                  <span className="text-primary"> Earn $200</span>
-                </h2>
-                <p className="mt-4 text-lg text-muted-foreground">
-                  Know another plumbing company that's missing calls? Send them
-                  our way. When they sign up, you both get a $200 credit.
-                </p>
-                <Button className="mt-6" size="lg" asChild>
-                  <a href="#lead-capture">Send a Referral</a>
-                </Button>
-              </div>
+    <section className="py-24 px-4">
+      <div className="max-w-5xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="glass-card p-10 md:p-16 text-center"
+          style={{ border: "1px solid rgba(249,115,22,0.2)", boxShadow: "0 0 60px rgba(249,115,22,0.05)" }}
+        >
+          <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6" style={{ background: "rgba(249,115,22,0.12)", border: "1px solid rgba(249,115,22,0.25)" }}>
+            <Users className="w-8 h-8" style={{ color: "#f97316" }} />
+          </div>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold mb-6" style={{ background: "rgba(249,115,22,0.1)", border: "1px solid rgba(249,115,22,0.25)", color: "#f97316" }}>
+            BROTHERHOOD LOOP PROGRAM
+          </div>
+          <h2 className="font-display text-[clamp(32px,6vw,60px)] text-white leading-tight mb-4">
+            GROW TOGETHER. WIN TOGETHER.
+          </h2>
+          <p className="text-lg mb-12 max-w-2xl mx-auto" style={{ color: "#8892b0" }}>
+            Plumbing is a brotherhood. Turn your network into savings.
+          </p>
 
-              <div className="grid gap-4">
-                <div className="flex items-start gap-4 rounded-xl bg-background/60 p-4 backdrop-blur">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
-                    <Users className="h-5 w-5 text-primary" />
-                  </div>
-                  <div>
-                    <div className="font-semibold">Share Your Link</div>
-                    <div className="text-sm text-muted-foreground">
-                      Send your unique referral link to any Texas plumbing
-                      business.
-                    </div>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4 rounded-xl bg-background/60 p-4 backdrop-blur">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
-                    <DollarSign className="h-5 w-5 text-primary" />
-                  </div>
-                  <div>
-                    <div className="font-semibold">They Sign Up</div>
-                    <div className="text-sm text-muted-foreground">
-                      When they start their subscription, the credit is
-                      automatically applied.
-                    </div>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4 rounded-xl bg-background/60 p-4 backdrop-blur">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
-                    <Gift className="h-5 w-5 text-primary" />
-                  </div>
-                  <div>
-                    <div className="font-semibold">You Both Get $200</div>
-                    <div className="text-sm text-muted-foreground">
-                      No limit on referrals. Refer 5 plumbers, earn $1,000 in
-                      credits.
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+          <div className="grid md:grid-cols-2 gap-5 mb-10">
+            <motion.div whileHover={{ scale: 1.02, transition: { duration: 0.2 } }} className="p-8 rounded-2xl" style={{ background: "rgba(249,115,22,0.06)", border: "1px solid rgba(249,115,22,0.2)" }} data-testid="referral-they-get">
+              <p className="text-xs uppercase tracking-widest mb-3" style={{ color: "#6b7280" }}>Your Buddy Gets</p>
+              <p className="font-display text-6xl mb-2" style={{ color: "#f97316" }}>10% OFF</p>
+              <p className="text-sm" style={{ color: "#8892b0" }}>Their setup activation AND first week enrollment</p>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.02, transition: { duration: 0.2 } }} className="p-8 rounded-2xl" style={{ background: "rgba(0,255,136,0.06)", border: "1px solid rgba(0,255,136,0.2)" }} data-testid="referral-you-get">
+              <p className="text-xs uppercase tracking-widest mb-3" style={{ color: "#6b7280" }}>You Get</p>
+              <p className="font-display text-6xl mb-2" style={{ color: "#00ff88" }}>20% OFF</p>
+              <p className="text-sm" style={{ color: "#8892b0" }}>Your next weekly enrollment — applied instantly</p>
+            </motion.div>
+          </div>
+
+          <p className="text-sm mb-8" style={{ color: "#4b5563" }}>
+            Have your buddy mention your name when enrolling, or email vic@texasdispatch.site — discounts applied same day.
+          </p>
+          <button
+            onClick={() => scrollTo("#contact")}
+            className="btn-orange inline-flex items-center gap-2 px-8 py-4 rounded-xl font-black text-base"
+            data-testid="btn-referral-cta"
+          >
+            Join The Brotherhood — Start Your Trial <ArrowRight className="w-5 h-5" />
+          </button>
+        </motion.div>
       </div>
     </section>
   );

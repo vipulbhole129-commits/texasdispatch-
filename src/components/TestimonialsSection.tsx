@@ -1,95 +1,102 @@
-import { Star, Quote } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
+import { motion } from "framer-motion";
+import { Shield } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Mike Rodriguez",
-    company: "Rodriguez Plumbing Co.",
-    location: "Houston, TX",
-    quote:
-      "We were missing 15-20 calls a week during jobs. Now the AI catches every one and books them right into our calendar. We've added $8,000/month in revenue.",
-    rating: 5,
+    id: "J*** M.",
+    role: "Master Plumber – Austin, TX",
+    license: "Lic #***84",
+    quote: "Caught 3 emergency slab leak calls this weekend while I was out fishing. Paid for the entire year in 48 hours.",
+    stars: 5,
+    tag: "Verified Master Plumber",
+    accent: "#10b981",
   },
   {
-    name: "Sarah Thompson",
-    company: "Thompson & Sons Plumbing",
-    location: "Dallas, TX",
-    quote:
-      "The emergency dispatch feature is a game-changer. Burst pipe at 2 AM? The AI answers, gets the details, and routes it straight to my phone. Customers love it.",
-    rating: 5,
-  },
-  {
-    name: "David Chen",
-    company: "Chen Plumbing Solutions",
-    location: "Austin, TX",
-    quote:
-      "I used to have a receptionist costing me $3,500/month. This does the same job better, never takes a break, and costs a fraction. Best decision I've made.",
-    rating: 5,
-  },
-  {
-    name: "Lisa Martinez",
-    company: "Martinez Family Plumbing",
-    location: "San Antonio, TX",
-    quote:
-      "The ROI calculator showed I was losing $4,200/month from missed calls. After switching, my actual numbers matched exactly. This thing pays for itself.",
-    rating: 5,
-  },
-  {
-    name: "Robert Williams",
-    company: "Williams Plumbing & Drain",
-    location: "Fort Worth, TX",
-    quote:
-      "What impressed me most is how natural it sounds. Half my customers don't even realize they're talking to an AI until I show up. That's the real magic.",
-    rating: 5,
-  },
-  {
-    name: "Jennifer Garcia",
-    company: "Garcia Plumbing Experts",
-    location: "El Paso, TX",
-    quote:
-      "The SMS follow-up feature alone has improved our show rate by 40%. People actually show up when they get a text confirmation with the plumber's name.",
-    rating: 5,
+    id: "R. Jenkins",
+    role: "*** Plumbing – Dallas, TX",
+    license: "Lic #***29",
+    quote: "The automated dispatch logic works flawlessly. No long term contracts, just pure automated revenue.",
+    stars: 5,
+    tag: "Verified Business Owner",
+    accent: "#10b981",
   },
 ];
 
-export function TestimonialsSection() {
+function Stars({ count }: { count: number }) {
   return (
-    <section id="testimonials" className="py-20 md:py-28 bg-muted/20">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="mx-auto max-w-2xl text-center mb-14">
-          <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-            Trusted by Texas Plumbers
-          </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
-            Join hundreds of plumbing companies across Texas who never miss a
-            call anymore.
-          </p>
-        </div>
+    <div className="flex gap-1">
+      {Array.from({ length: count }).map((_, i) => (
+        <svg key={i} className="w-4 h-4" viewBox="0 0 20 20" fill="#f59e0b">
+          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+        </svg>
+      ))}
+    </div>
+  );
+}
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {testimonials.map((t) => (
-            <Card key={t.name} className="h-full">
-              <CardContent className="pt-6">
-                <Quote className="h-8 w-8 text-primary/20 mb-3" />
-                <div className="flex gap-0.5 mb-3">
-                  {Array.from({ length: t.rating }).map((_, i) => (
-                    <Star
-                      key={i}
-                      className="h-4 w-4 fill-primary text-primary"
-                    />
-                  ))}
+export default function TestimonialsSection() {
+  return (
+    <section className="py-20 px-4" style={{ background: "#0b0f19", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+      <div className="max-w-4xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold mb-5" style={{ background: "rgba(16,185,129,0.08)", border: "1px solid rgba(16,185,129,0.25)", color: "#10b981" }}>
+            <Shield className="w-4 h-4" />
+            Partial data shown for client privacy
+          </div>
+          <h2 className="font-display text-[clamp(30px,6vw,56px)] text-white mb-3">
+            Trusted By Real Texas<br />
+            <span style={{ color: "#10b981" }}>Master Plumbers</span>
+          </h2>
+          <p className="text-base" style={{ color: "#6b7280" }}>
+            Business identifiers partially redacted to protect client privacy. License numbers verified.
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 gap-6">
+          {testimonials.map((t, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.15 }}
+              className="relative rounded-2xl p-7 flex flex-col gap-5"
+              style={{
+                background: "rgba(255,255,255,0.03)",
+                border: "1px solid rgba(255,255,255,0.08)",
+                boxShadow: "0 8px 40px rgba(0,0,0,0.4)",
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.borderColor = "rgba(16,185,129,0.35)"; e.currentTarget.style.boxShadow = "0 0 30px rgba(16,185,129,0.06), 0 8px 40px rgba(0,0,0,0.4)"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)"; e.currentTarget.style.boxShadow = "0 8px 40px rgba(0,0,0,0.4)"; }}
+              data-testid={`testimonial-card-${i}`}
+            >
+              {/* Quote */}
+              <div className="text-4xl font-serif leading-none" style={{ color: "#10b981", opacity: 0.4 }}>"</div>
+              <p className="text-base leading-relaxed text-white flex-1">
+                "{t.quote}"
+              </p>
+
+              {/* Stars */}
+              <Stars count={t.stars} />
+
+              {/* Identity */}
+              <div className="flex items-center justify-between pt-4" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+                <div>
+                  <p className="font-black text-white text-base">{t.id}</p>
+                  <p className="text-sm" style={{ color: "#6b7280" }}>{t.role}</p>
+                  <p className="text-xs mt-0.5 font-mono" style={{ color: "#4b5563" }}>{t.license}</p>
                 </div>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  "{t.quote}"
-                </p>
-                <div className="mt-4 pt-4 border-t border-border/60">
-                  <div className="font-semibold text-sm">{t.name}</div>
-                  <div className="text-xs text-muted-foreground">
-                    {t.company} — {t.location}
-                  </div>
+                <div className="px-3 py-1.5 rounded-full text-xs font-bold" style={{ background: "rgba(16,185,129,0.1)", border: "1px solid rgba(16,185,129,0.25)", color: "#10b981" }}>
+                  {t.tag}
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>
