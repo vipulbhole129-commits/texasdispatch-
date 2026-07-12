@@ -3,7 +3,7 @@ import { ROICalculator } from "@/components/ROICalculator";
 import { LossCalculator } from "@/components/LossCalculator";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { TrendingUp, AlertTriangle } from "lucide-react";
+import { TrendingUp, TriangleAlert as AlertTriangle } from "lucide-react";
 
 export function Calculators() {
   const [tab, setTab] = useState("roi");
