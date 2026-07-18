@@ -87,6 +87,7 @@ export default function ROICalculator() {
                     className="w-full pl-10 pr-4 py-3.5 rounded-xl font-bold text-lg outline-none"
                     style={{ background: "rgba(0,255,136,0.07)", border: "1px solid rgba(0,255,136,0.3)", color: "white" }}
                     data-testid="input-roi-job-value"
+                    aria-label="Enter estimated job value in dollars"
                   />
                 </div>
               </div>
