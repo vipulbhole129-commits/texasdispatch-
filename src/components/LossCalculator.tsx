@@ -89,6 +89,7 @@ export default function LossCalculator() {
                     if (missedCalls > v) setMissedCalls(v);
                   }}
                   className="red-track w-[calc(100%-8px)] sm:w-full"
+                  aria-label="Calls received per week"
                   data-testid="slider-calls-per-week"
                 />
               </div>
@@ -102,6 +103,7 @@ export default function LossCalculator() {
                   type="range" min="0" max={callsPerWeek} value={missedCalls}
                   onChange={(e) => setMissedCalls(Number(e.target.value))}
                   className="red-track w-[calc(100%-8px)] sm:w-full"
+                  aria-label="Dead or missed calls per week"
                   data-testid="slider-missed-calls"
                 />
               </div>
@@ -115,6 +117,7 @@ export default function LossCalculator() {
                   type="range" min="200" max="5000" step="100" value={jobValue}
                   onChange={(e) => setJobValue(Number(e.target.value))}
                   className="red-track w-[calc(100%-8px)] sm:w-full"
+                  aria-label="Average emergency job value in dollars"
                   data-testid="slider-job-value"
                 />
               </div>

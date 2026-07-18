@@ -293,6 +293,7 @@ export default function TexasBot() {
             whileTap={{ scale: 0.95 }}
             onClick={() => { setOpen(true); setMinimized(false); }}
             className="fixed bottom-28 sm:bottom-20 md:bottom-6 right-3 sm:right-4 z-50 flex flex-col items-center gap-1"
+            aria-label="Open Texas Bot chat"
             data-testid="btn-texas-bot-open"
           >
             <div className="w-11 h-11 sm:w-16 sm:h-16 rounded-full flex items-center justify-center" style={{ background: "linear-gradient(135deg, #f97316, #ea580c)", boxShadow: "0 0 25px rgba(249,115,22,0.6), 0 4px 20px rgba(0,0,0,0.4)" }}>
@@ -347,6 +348,7 @@ export default function TexasBot() {
                 <button
                   onClick={(e) => { e.stopPropagation(); setOpen(false); setMinimized(false); }}
                   className="p-1 rounded-lg hover:bg-white/10 transition-colors"
+                  aria-label="Close Texas Bot chat"
                   data-testid="btn-texas-bot-close"
                 >
                   <X className="w-4 h-4 text-white" />
@@ -409,6 +411,7 @@ export default function TexasBot() {
                       placeholder="Type here..."
                       className="flex-1 bg-transparent text-sm text-white placeholder-gray-600 outline-none"
                       disabled={loading || step === "submitting"}
+                      aria-label="Type a message to Texas Bot"
                       data-testid="input-chat-message"
                     />
                     <button
@@ -416,6 +419,7 @@ export default function TexasBot() {
                       disabled={loading || !input.trim() || step === "submitting"}
                       className="w-8 h-8 rounded-lg flex items-center justify-center disabled:opacity-40 transition-all"
                       style={{ background: "#f97316" }}
+                      aria-label="Send message"
                       data-testid="btn-chat-send"
                     >
                       {loading ? <Loader2 className="w-4 h-4 text-white animate-spin" /> : <Send className="w-4 h-4 text-white" />}

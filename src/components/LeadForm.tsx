@@ -333,6 +333,7 @@ export default function LeadForm() {
                   onChange={set("callHandling")}
                   style={selectStyle("callHandling")}
                   {...focusProps("callHandling")}
+                  aria-label="How do you handle calls now"
                   data-testid="select-call-handling"
                 >
                   <option value="" disabled style={{ background: "#0b0f19", color: "rgba(255,255,255,0.3)" }}>
@@ -356,6 +357,7 @@ export default function LeadForm() {
                   onChange={set("planInterest")}
                   style={selectStyle("planInterest")}
                   {...focusProps("planInterest")}
+                  aria-label="Plan of interest"
                   data-testid="select-plan-interest"
                 >
                   <option value="" disabled style={{ background: "#0b0f19", color: "rgba(255,255,255,0.3)" }}>

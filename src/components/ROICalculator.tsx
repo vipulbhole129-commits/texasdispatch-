@@ -67,6 +67,7 @@ export default function ROICalculator() {
                   onChange={(e) => setPlan(e.target.value)}
                   className="w-full px-4 py-3.5 rounded-xl font-bold outline-none appearance-none"
                   style={{ background: "rgba(0,255,136,0.07)", border: "1px solid rgba(0,255,136,0.3)", color: "white" }}
+                  aria-label="Your enrollment plan"
                   data-testid="select-roi-plan"
                 >
                   <option value="gold" style={{ background: "#0b0e1f" }}>Gold Enrollment — $49/week</option>
@@ -95,7 +96,7 @@ export default function ROICalculator() {
                   <label className="text-sm font-medium flex-1 min-w-0" style={{ color: "#c0c8e8" }}>Expected answer rate improvement</label>
                   <span className="text-sm font-black flex-shrink-0 whitespace-nowrap" style={{ color: "#00ff88" }}>{answerRateIncrease}%</span>
                 </div>
-                <input type="range" min="10" max="90" value={answerRateIncrease} onChange={(e) => setAnswerRateIncrease(Number(e.target.value))} className="green-track w-[calc(100%-8px)] sm:w-full" data-testid="slider-answer-rate" />
+                <input type="range" min="10" max="90" value={answerRateIncrease} onChange={(e) => setAnswerRateIncrease(Number(e.target.value))} className="green-track w-[calc(100%-8px)] sm:w-full" aria-label="Expected answer rate improvement percentage" data-testid="slider-answer-rate" />
                 <div className="flex justify-between text-xs mt-1" style={{ color: "#374151" }}><span>10%</span><span>90%</span></div>
               </div>
             </div>

@@ -92,6 +92,7 @@ export default function Home() {
       {/* Nav */}
       <NavMenu />
 
+      <main>
       {/* 2. HERO — 2-column layout with video mock + audio player */}
       <HeroSection />
 
@@ -125,6 +126,8 @@ export default function Home() {
       {/* Contact info */}
       <ContactInfoSection />
 
+      </main>
+
       {/* Footer */}
       <footer
         className="py-10 px-4 text-center"
@@ -136,10 +139,10 @@ export default function Home() {
           </div>
           <span className="font-black text-white text-base">Texas Plumbing Dispatch</span>
         </div>
-        <p className="text-xs" style={{ color: "#374151" }}>
+        <p className="text-xs" style={{ color: "#6b7280" }}>
           Built exclusively for Texas plumbers. Powered by AI. &copy; {new Date().getFullYear()} Texas Plumbing Dispatch. All rights reserved.
         </p>
-        <p className="text-xs mt-1" style={{ color: "#1f2937" }}>vic@texasdispatch.site</p>
+        <p className="text-xs mt-1" style={{ color: "#4b5563" }}>vic@texasdispatch.site</p>
       </footer>
 
       {/* AI Chat Bot */}

@@ -75,6 +75,7 @@ export default function NavMenu() {
             onClick={() => setOpen(true)}
             className="p-2.5 rounded-xl transition-colors"
             style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)" }}
+            aria-label="Toggle menu"
             data-testid="btn-hamburger-menu"
           >
             <Menu className="w-5 h-5 text-white" />
@@ -111,7 +112,7 @@ export default function NavMenu() {
                   </div>
                   <span className="font-black text-white text-base">Menu</span>
                 </div>
-                <button onClick={() => setOpen(false)} className="p-2 rounded-xl hover:bg-white/10 transition-colors" data-testid="btn-close-menu">
+                <button onClick={() => setOpen(false)} className="p-2 rounded-xl hover:bg-white/10 transition-colors" aria-label="Close menu" data-testid="btn-close-menu">
                   <X className="w-5 h-5 text-white" />
                 </button>
               </div>
