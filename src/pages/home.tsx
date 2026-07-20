@@ -53,7 +53,15 @@ function AnnouncementBar() {
 function StickyCTA() {
   const [visible, setVisible] = useState(false);
   useEffect(() => {
-    const handler = () => setVisible(window.scrollY > 500);
+    let ticking = false;
+    const handler = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        setVisible(window.scrollY > 500);
+        ticking = false;
+      });
+    };
     window.addEventListener("scroll", handler, { passive: true });
     return () => window.removeEventListener("scroll", handler);
   }, []);
@@ -84,10 +92,6 @@ function StickyCTA() {
   );
 }
 
-const SectionFallback = () => (
-  <div className="min-h-[200px] flex items-center justify-center" aria-hidden="true" />
-);
-
 export default function Home() {
   return (
     <div className="min-h-screen" style={{ background: "#0b0f19" }}>
@@ -104,7 +108,7 @@ export default function Home() {
       {/* 2b. TRUST / FEATURE STRIP */}
       <TrustStrip />
 
-      <Suspense fallback={<SectionFallback />}>
+      <Suspense fallback={<div className="min-h-screen bg-gray-900"></div>}>
         {/* 3. TRUST & SOCIAL PROOF */}
         <TestimonialsSection />
 

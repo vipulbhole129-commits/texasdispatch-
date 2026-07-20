@@ -9,16 +9,16 @@ function scrollTo(id: string) {
 const plans = [
   {
     tier: "GOLD",
-    price: 49,
-    setup: 99,
-    setupLabel: "Upfront Activation Investment",
+    price: 29,
+    setup: 39,
+    setupLabel: "Activation Fee",
     features: [
       "24/7 Autonomous Answering",
       "Basic Lead Qualification",
       "Email & SMS Dispatch Alerts",
       "Live Call Recordings",
       "AI Insights Dashboard",
-      "$9 standard / $19 emergency leads",
+      "Bilingual AI (Spanish + English)",
     ],
     popular: false,
     cta: "Enroll in Gold Plan",
@@ -28,9 +28,9 @@ const plans = [
   },
   {
     tier: "PLATINUM",
-    price: 99,
-    setup: 149,
-    setupLabel: "Upfront Activation Investment",
+    price: 39,
+    setup: 49,
+    setupLabel: "Activation Fee",
     features: [
       "Everything in Gold",
       "Custom Brand Voice Greeting",
@@ -38,7 +38,6 @@ const plans = [
       "Faster API Lead Processing",
       "Name Your Dedicated AI (e.g., 'Riley')",
       "Custom SLA Guard",
-      "$9 standard / $19 emergency leads",
     ],
     popular: true,
     cta: "Secure My Platinum Spot",
@@ -48,16 +47,15 @@ const plans = [
   },
   {
     tier: "DIAMOND",
-    price: 149,
-    setup: 249,
-    setupLabel: "Upfront Activation Investment",
+    price: 69,
+    setup: 79,
+    setupLabel: "Activation Fee",
     features: [
       "Everything in Platinum",
       "Custom Complex Call Flow Logic",
       "Outbound Follow-Up Calling (Beta)",
       "VIP Founder-Level Support",
       "Promo & Discount Announcements",
-      "$9 standard / $19 emergency leads",
     ],
     popular: false,
     cta: "Activate Diamond Plan",
@@ -83,7 +81,7 @@ export default function PricingSection() {
             style={{ background: "rgba(16,185,129,0.08)", border: "1px solid rgba(16,185,129,0.25)", color: "#10b981" }}
           >
             <Zap className="w-4 h-4" />
-            Week-to-week. No contracts. Cancel anytime.
+            Month-to-month. No contracts. Cancel anytime.
           </div>
           <h2 className="font-display text-[clamp(34px,6vw,64px)] text-white leading-tight mb-4">
             ENROLLMENT PLANS THAT<br />
@@ -91,7 +89,7 @@ export default function PricingSection() {
           </h2>
           <p className="text-lg max-w-2xl mx-auto" style={{ color: "#9ca3af" }}>
             One booked emergency call pays for months of enrollment.
-            You only pay for <strong className="text-white">verified, real jobs.</strong>
+            You only pay a flat <strong className="text-white">monthly rate.</strong>
           </p>
         </motion.div>
 
@@ -132,7 +130,7 @@ export default function PricingSection() {
               <div className="mb-2">
                 <div className="flex items-baseline gap-1">
                   <span className="text-5xl font-black text-white">${plan.price}</span>
-                  <span className="text-base font-medium" style={{ color: "#6b7280" }}>/week</span>
+                  <span className="text-base font-medium" style={{ color: "#6b7280" }}>/month</span>
                 </div>
               </div>
               <p className="text-xs mb-7" style={{ color: "#4b5563" }}>
